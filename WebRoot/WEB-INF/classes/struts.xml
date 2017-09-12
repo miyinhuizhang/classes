@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+	<package name="classes"  extends="struts-default">
+		<!--  用户利用学生信息登录  -->
+		<action name="Login" class="studentAct" method="doLogin">
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/main.jsp</result>
+		</action>
+		
+		<!-- 用户进入学生信息列表 -->
+		<action name="userQuery" class="studentAct" method="doQuery">
+			<result name="success">/Student/StudentList.jsp</result>
+		</action>
+		<!--  用户添加学生信息  -->
+		<action name="StudentAdd" class="studentAct" method="doAdd">
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/Student/StudentList.jsp</result>
+		</action>
+		<!-- 用户修改学生信息 -->
+		<action name="userQuery2" class="studentAct" method="doQuery2">
+			<result name="success">/Student/StudentEdit.jsp</result>
+		</action>
+		<action name="userEdit" class="studentAct" method="doEdit">
+			<result name="success">/Student/StudentList.jsp</result>
+		</action>
+		<!-- 用户删除学生信息 -->
+		<action name="userDelete" class="studentAct" method="doDelete">
+			<result name="success">/Student/StudentList.jsp</result>
+		</action>
+		
+		
+		<!-- 用户进入班级信息列表 -->
+		<action name="classQuery" class="classAct" method="doQuery">
+			<result name="success">/class/classList.jsp</result>
+		</action>
+		<!--  用户添加班级信息  -->
+		<action name="classAdd" class="classAct" method="doAdd">
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/class/classList.jsp</result>
+		</action>
+		<!-- 用户修改班级信息 -->
+		<action name="classQuery2" class="classAct" method="doQuery2">
+			<result name="success">/class/classEdit.jsp</result>
+		</action>
+		<action name="classEdit" class="classAct" method="doEdit">
+			<result name="success">/class/classList.jsp</result>
+		</action>
+		<!-- 用户删除班级信息 -->
+		<action name="classDelete" class="classAct" method="doDelete">
+			<result name="success">/class/classList.jsp</result>
+		</action>
+		
+		<!-- 用户进入课程信息列表 -->
+		<action name="courseQuery" class="courseAct" method="doQuery">
+			<result name="success">/course/courseList.jsp</result>
+		</action>
+		<!--  用户添加课程信息  -->
+		<action name="courseAdd" class="courseAct" method="doAdd">
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/course/courseList.jsp</result>
+		</action>
+		<!-- 用户修改课程信息 -->
+		<action name="courseQuery2" class="courseAct" method="doQuery2">
+			<result name="success">/course/courseEdit.jsp</result>
+		</action>
+		<action name="courseEdit" class="courseAct" method="doEdit">
+			<result name="success">/course/courseList.jsp</result>
+		</action>
+		<!-- 用户删除课程信息 -->
+		<action name="courseDelete" class="courseAct" method="doDelete">
+			<result name="success">/course/courseList.jsp</result>
+		</action>
+		
+		<!-- 用户进入录入选课信息列表 -->
+		<action name="cgQuery" class="gradeAct" method="doQuery">
+			<result name="success">/xuanke/xuankeList.jsp</result>
+		</action>
+		<!--  用户录入选课信息  -->
+		<action name="cgAdd" class="gradeAct" method="doAdd">
+			<result name="error">/jsp/error.jsp</result>
+			<result name="success">/xuanke/xuankeList.jsp</result>
+		</action>
+		<!-- 用户修改选课信息 -->
+		<action name="cgQuery2" class="gradeAct" method="doQuery2">
+			<result name="success">/xuanke/xuankeEdit.jsp</result>
+		</action>
+		<action name="cgEdit" class="gradeAct" method="doEdit">
+			<result name="success">/xuanke/xuankeList.jsp</result>
+		</action>
+		<!-- 用户删除选课信息 -->
+		<action name="cgDelete" class="gradeAct" method="doDelete">
+			<result name="success">/xuanke/xuankeList.jsp</result>
+		</action>
+		
+		<!-- 用户进入录入成绩信息列表 -->
+		<action name="gradeQuery" class="gradeAct" method="doQuery">
+			<result name="success">/grade/gradeList.jsp</result>
+		</action>
+		<!-- 用户修改成绩信息 -->
+		<action name="gradeQuery2" class="gradeAct" method="doQuery2">
+			<result name="success">/grade/gradeEdit.jsp</result>
+		</action>
+		<action name="gradeEdit" class="gradeAct" method="doEdit">
+			<result name="success">/grade/gradeList.jsp</result>
+		</action>
+		<!-- 用户删除成绩信息 -->
+		<action name="gradeQuery21" class="gradeAct" method="doQuery2">
+			<result name="success">/grade/gradeDelete.jsp</result>
+		</action>
+		<!-- 用户进入统计成绩信息 -->
+		<action name="select" class="courseAct" method="doQuery">
+			<result name="success">/grade/TongJi.jsp</result>
+		</action>
+		<action name="select2" class="studentAct" method="doQuery">
+			<result name="success">/grade/TongJi1.jsp</result>
+		</action>
+		<!-- 用户进入统计课程成绩信息 -->
+		<action name="selectfs" class="gradeAct" method="doQuery3">
+			<result name="success">/grade/TongJi.jsp</result>
+		</action>
+		<!-- 用户进入统计学生成绩信息 -->
+		<action name="selectxs" class="gradeAct" method="doQuery4">
+			<result name="success">/grade/TongJi1.jsp</result>
+		</action>		
+	</package>
+</struts>    

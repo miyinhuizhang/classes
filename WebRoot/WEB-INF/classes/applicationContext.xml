@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver">
+		</property>
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;databaseName=dbClassManagment">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="123"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/gwh/pojo/Course.hbm.xml</value>
+				<value>com/gwh/pojo/Grade.hbm.xml</value>
+				<value>com/gwh/pojo/Student.hbm.xml</value>
+				<value>com/gwh/pojo/TbClass.hbm.xml</value></list>
+		</property></bean>
+		
+		<!-- 学生信息 -->
+		<bean id="studentAct" class="com.gwh.action.StudentAction" scope="prototype">
+			<property name="studentService" ref="studentService"></property>
+		</bean>
+	
+		<bean id="studentService" class="com.gwh.service.service">
+			<property name="dao" ref="dao"></property>
+		</bean>
+	
+		<bean id="dao" class="com.gwh.dao.base">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<!-- 班级信息 -->
+		<bean id="classAct" class="com.gwh.action.ClassAction" scope="prototype">
+			<property name="classService" ref="classService"></property>
+		</bean>
+	
+		<bean id="classService" class="com.gwh.service.classService">
+			<property name="cbase" ref="cbase"></property>
+		</bean>
+	
+		<bean id="cbase" class="com.gwh.dao.classbase">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<!-- 课程信息 -->
+		<bean id="courseAct" class="com.gwh.action.CourseAction" scope="prototype">
+			<property name="coService" ref="coService"></property>
+		</bean>
+	
+		<bean id="coService" class="com.gwh.service.courseService">
+			<property name="cobase" ref="cobase"></property>
+		</bean>
+	
+		<bean id="cobase" class="com.gwh.dao.courseBase">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<!-- 成绩信息 -->
+		<bean id="gradeAct" class="com.gwh.action.GradeAction" scope="prototype">
+			<property name="gService" ref="gService"></property>
+			<property name="coService" ref="coService"></property>
+			<property name="studentService" ref="studentService"></property>
+		</bean>
+	
+		<bean id="gService" class="com.gwh.service.gradeService">
+			<property name="gbase" ref="gbase"></property>
+		</bean>
+	
+		<bean id="gbase" class="com.gwh.dao.gradeBase">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		</beans>

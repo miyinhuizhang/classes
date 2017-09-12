@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/js/jquery.min.js,WebRoot/plugins/layui/lay/modules/mobile.js,WebRoot/plugins/layui/lay/modules/jquery.js,WebRoot/plugins/layui/layui.js,WebRoot/lay/modules/jquery.js,WebRoot/lay/dest/layui.all.js,WebRoot/plugins/layui/lay/dest/layui.mod.js,WebRoot/layui.js,WebRoot/lay/modules/mobile.js,WebRoot/plugins/layui/lay/dest/layui.all.js,WebRoot/plugins/layui/lay/lib/jquery.js
+validator.Unchecked=
